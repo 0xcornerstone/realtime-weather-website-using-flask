@@ -1,0 +1,135 @@
+{% extends "base.html" %}
+{% block content%}
+<div id="container">
+    <div class="container">
+        <form autocomplete="off" method="post" action="/">
+            <div class="finder">
+                <div class="finder__outer">
+                    <div class="finder__inner">
+                        <div class="finder__icon" ref="icon"></div>
+                        <input class="finder__input" type="text" name="location_parameter" id="location_parameter"
+                            placeholder="Enter Place" onkeydown="if(event.keyCode===13) this.form.submit()" />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="../static/js/search_script.js"></script>
+
+<div class="container2">
+    <div class="l-container">
+        <div class="b-game-card">
+            {% if weather_info.day_night %}
+                <div class="b-game-card__cover" style="background-image: url(/static/images/day_background.png);">
+                    <h1 style="color: white; margin-top: 7%; font-family:Comic Sans MS;">
+                        <center><b>{{ weather_info.location_name }} </b></center>
+                    </h1>
+                    <p style="color:white; font-size: x-large; font-family: cursive; padding-top: 92%; margin-left: 10px;">
+                        {{ weather_info.overall_weather }}
+                    </p>
+                    <p style="color:white; font-size: x-large; font-family: Comic Sans MS (cursive); margin-top: -6%; margin-left: 10px;">
+                       Humidity: {{weather_info.humidity}}
+                    </p>
+                    <img src="{{weather_info.overall_weather_icon}}" style="height: 60px; width: 60px; margin-top: -50%; margin-left: 75%;">
+                </div>
+            {% else %}
+                <div class="b-game-card__cover" style="background-image: url(/static/images/night_background.png);">
+                    <h1 style="color: white; margin-top: 7%; font-family:Comic Sans MS;">
+                        <center><b>{{ weather_info.location_name }} </b></center>
+                    </h1>
+                    <p style="color:white; font-size: x-large; font-family: cursive; padding-top: 92%; margin-left: 10px;">
+                        {{ weather_info.overall_weather }}
+                    </p>
+                    <p style="color:white; font-size: x-large; font-family: Comic Sans MS (cursive); margin-top: -6%; margin-left: 10px;">
+                       Humidity: {{weather_info.humidity}}
+                    </p>
+                    <img src="{{weather_info.overall_weather_icon}}" style="height: 60px; width: 60px; margin-top: -50%; margin-left: 75%;">
+                </div>
+            {% endif %}
+        </div>
+        <div class="b-game-card">
+            {% if weather_info.temperature_cel> 25.0 %}
+                <div class="b-game-card__cover" style="background-image: url(/static/images/hot_weather.jpg);">
+                    <center>
+                        <p style="color:white; font-size: large; font-family: Comic Sans MS; padding-top: 40%;">
+                            TEMPERATURE
+                        </p>
+                        <h3 style="color:white; font-family: cursive; margin-top: -18px;">
+                            {{ weather_info.temperature_cel }}° C/ {{ weather_info.temperature_fahr }}° F
+                        </h3>
+                        <p style="color:white; font-size: large; font-family: Comic Sans MS (cursive); padding-top: 58%;">
+                            Feels Like
+                        </p>
+                        <h4 style="color:white; font-family: cursive; margin-top: -18px;">
+                            {{ weather_info.feelslike_c }}° C/ {{ weather_info.feelslike_f }}° F
+                        </h4>
+                    </center>
+                </div>
+            {% else %}
+                <div class="b-game-card__cover" style="background-image: url(/static/images/cold_weather.jpg);">
+                    <center>
+                        <p style="color:white; font-size: large; font-family: Comic Sans MS; padding-top: 40%;">
+                            TEMPERATURE
+                        </p>
+                        <h3 style="color:white; font-family: cursive; margin-top: -18px;">
+                            {{ weather_info.temperature_cel }}° C/ {{ weather_info.temperature_fahr }}° F
+                        </h3>
+                        <p style="color:white; font-size: large; font-family: Comic Sans MS (cursive); padding-top: 58%;">
+                            Feels Like
+                        </p>
+                        <h4 style="color:white; font-family: cursive; margin-top: -18px;">
+                            {{ weather_info.feelslike_c }}° C/ {{ weather_info.feelslike_f }}° F
+                        </h4>
+                    </center>
+                </div>
+            {% endif %}
+        </div>
+        <div class="b-game-card">
+            {% if weather_info.wind_kph > 18.0 %}
+                <div class="b-game-card__cover" style="background-image: url(/static/images/fast_wind.png);">
+                    <center>
+                        <p style="color:white; font-size: large; font-family: Comic Sans MS; padding-top: 40%;">
+                            WIND
+                        </p>
+                        <h3 style="color:white; font-family: cursive; margin-top: -18px;">
+                            {{ weather_info.wind_mph }} mph/ {{ weather_info.wind_kph }} kph
+                        </h3>
+                        <p style="color:white; font-size: large; font-family: Comic Sans MS (cursive); padding-top: 58%; padding-right: 40%;">
+                            Wind Direction
+                        </p>
+                        <h4 style="color:white; font-family: cursive; margin-top: -18px; padding-right: 40%;">
+                            {{ weather_info.wind_degree }}°({{ weather_info.wind_direction }})
+                        </h4>
+                    </center>
+                </div>
+            {% else %}
+                <div class="b-game-card__cover" style="background-image: url(/static/images/slow_wind.png);">
+                    <center>
+                        <p style="color:white; font-size: large; font-family: Comic Sans MS; padding-top: 40%;">
+                            WIND
+                        </p>
+                        <h3 style="color:white; font-family: cursive; margin-top: -18px;">
+                            {{ weather_info.wind_mph }} mph/ {{ weather_info.wind_kph }} kph
+                        </h3>
+                        <p style="color:white; font-size: large; font-family: Comic Sans MS (cursive); padding-top: 58%; padding-right: 40%;">
+                            Wind Direction
+                        </p>
+                        <h4 style="color:white; font-family: cursive; margin-top: -18px; padding-right: 40%;">
+                            {{ weather_info.wind_degree }}°({{ weather_info.wind_direction }})
+                        </h4>
+                    </center>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+<div class="block-code">
+    <span>
+        Made by cornerstone
+        <a href="https://github.com/0xcornerstone">
+            <i class="fa fa-github" style="font-size:20px; color: #777 ;padding-left: 5px;"> </i> 
+        </a>
+    </span>
+</div>
+{% endblock%}

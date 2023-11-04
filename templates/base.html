@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- Search Bar -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" href="/static/css/search_style.css">
+  <!-- Cards Weather-->
+  <link rel="stylesheet" href="/static/css/cards_style.css">
+  <!-- Made By [Credits]-->
+  <link rel="stylesheet" href="/static/css/credit_style.css">
+  <!-- Bootstrap CDN-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" crossorigin="anonymous" />
+
+    <title>{% block title %}Skysense{% endblock %}</title>
+    <link rel="icon" href="/static/images/world.png" type="image/x-icon">
+
+</head>
+
+<body>
+  {% with message = get_flashed_messages()%} 
+    {% if message %} 
+          <div class="alert alert-danger alter-dismissable fade show" role="alert">
+            {{ message[0] }}
+          </div>
+    {% endif %} 
+  {% endwith %}
+
+  {% block content%}
+
+  {% endblock%}
+</body>
+
+</html>
