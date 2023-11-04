@@ -16,6 +16,10 @@ Snippets:
 # How to run this project
 
 #### Python3 should be installed [https://www.python.org/]
+#### Flask should be installed. If it is not install install it by running this command in terminal
+```
+pip install flask
+```
 #### Download/Clone this repository [https://github.com/0xcornerstone/realtime-weather-website-using-flask/archive/refs/heads/main.zip]
 #### Then head over to weatherapi [https://www.weatherapi.com/] and sign up and get your API key.
 #### Copy the API key and paste it in api_key_weather file which is already available.
